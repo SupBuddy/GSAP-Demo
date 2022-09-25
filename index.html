@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="box box1">
+        <span class="text1-1">PEOPLE</span>
+        <span class="text1-2">CHANGE</span>
+      </div>
+      <div class="box box2">
+        <span class="text2-1">THINGS</span>
+        <span class="text2-2">GO</span>
+        <span class="text2-3">WRONG</span>
+      </div>
+      <div class="box box3">
+        <span class="text3-1">SHIT</span>
+        <span class="text3-2">HAPPENS</span>
+      </div>
+      <div class="box box4">
+        <span class="text4-1">BUT</span>
+        <span class="text4-2">LIFE</span>
+        <span class="text4-3">GOES</span>
+        <span class="text4-4">ON</span>
+      </div>
+      <div class="box box5">the END</div>
+    </div>
+    <div id="hint">
+      <p>Scroll Down</p>
+      <p class="arrow">﹀</p>
+    </div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+  <script type="text/javascript">
+    window.onscroll = function () {
+      document.getElementById("hint").remove();
+    };
+
+    let tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".box1",
+        start: "top 0",
+        end: "bottom 80%",
+        scrub: 1,
+      },
+    });
+    tl1
+      .from(".text1-1, .text1-2", { opacity: 0, x: -300, duration: 1 })
+      .to(".text1-2", {
+        scale: 1.5,
+        rotation: -10,
+        y: 30,
+        transform: "skewX(15deg)",
+        letterSpacing: "6px",
+        duration: 1,
+      });
+
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".box2",
+        start: "top 0%",
+        end: "bottom 80%",
+        scrub: 1,
+      },
+    });
+    tl2
+      .from(".text2-1, .text2-2", { opacity: 0, x: 300, duration: 1 })
+      .from(
+        ".text2-3",
+        { opacity: 0, x: -300, y: 300, rotation: 180, duration: 1 },
+        "<"
+      )
+      .to(".text2-3", {
+        scale: 1.5,
+        color: "#F66",
+        letterSpacing: "6px",
+        duration: 1,
+      });
+
+    let tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".box3",
+        start: "top 0",
+        end: "bottom 80%",
+        scrub: 1,
+      },
+    });
+    tl3
+      .from(".text3-1", {
+        opacity: 0,
+        y: -200,
+        letterSpacing: "50px",
+        duration: 1,
+      })
+      .from(
+        ".text3-2",
+        { opacity: 0, y: 200, letterSpacing: "50px", duration: 1 },
+        "<"
+      )
+      .to(".text3-1", {
+        scale: 1.5,
+        y: 40,
+        color: "#FFF",
+        padding: "0 20px",
+        background: "#933",
+        borderRadius: "10px",
+        letterSpacing: "6px",
+        duration: 1,
+      })
+      .to(
+        ".text3-2",
+        {
+          y: 60,
+        },
+        "<"
+      );
+
+    let tl4 = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".box4",
+        start: "top top",
+        end: "bottom 80%",
+        scrub: 1,
+      },
+    });
+    tl4
+      .from(".text4-1", {
+        opacity: 0,
+        x: -200,
+        duration: 0.8,
+      })
+      .from(".text4-2", { opacity: 0, duration: 0.8 })
+      .from(".text4-3", {
+        opacity: 0,
+        x: 200,
+        duration: 0.8,
+      })
+      .from(".text4-4", { opacity: 0, duration: 0.8 })
+      .to(".text4-1, .text4-3", {
+        scale: 0.6,
+        fontStyle: "italic",
+        color: "#69F",
+        opacity: 0.6,
+        y: 50,
+        duration: 1,
+      })
+      .to(
+        ".text4-2, .text4-4",
+        {
+          scale: 1.2,
+          color: "#FFF",
+          letterSpacing: "6px",
+          margin: "15px 0",
+          textShadow:
+            "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #fff,0 0 20px #69F,0 0 35px #69F,0 0 40px #69F,0 0 50px #69F,0 0 75px #69F",
+          y: 50,
+          duration: 1,
+        },
+        "<"
+      );
+  </script>
+</html>
