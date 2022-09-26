@@ -39,7 +39,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
   <script type="text/javascript">
     window.onscroll = function () {
-      document.getElementById("hint").remove();
+      if(document.getElementById("hint")){
+        document.getElementById("hint").remove();
+      }
     };
 
     let tl1 = gsap.timeline({
@@ -135,19 +137,28 @@
         x: -200,
         duration: 0.8,
       })
-      .from(".text4-2", { opacity: 0, duration: 0.8 })
-      .from(".text4-3", {
+      .from(".text4-2", {
         opacity: 0,
         x: 200,
         duration: 0.8,
       })
-      .from(".text4-4", { opacity: 0, duration: 0.8 })
+      .from(".text4-3", {
+        opacity: 0,
+        x: -200,
+        duration: 0.8,
+      })
+      .from(".text4-4", {
+        opacity: 0,
+        x: 200,
+        duration: 0.8,
+      })
       .to(".text4-1", {
         scale: 0.6,
-        fontStyle: "italic",
-        color: "#69F",
-        opacity: 0.6,
+        color: "#FFF",
+        textShadow:
+            "0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #fff,0 0 20px #69F,0 0 35px #69F,0 0 40px #69F,0 0 50px #69F,0 0 75px #69F",
         y: 70,
+        letterSpacing: "8px",
         duration: 1,
       })
       .to(
@@ -163,6 +174,7 @@
           duration: 1,
         },
         "<"
-      );
+      )
+      .to(".wrap", {background: "#000", duration: 1,}, "<");
   </script>
 </html>
